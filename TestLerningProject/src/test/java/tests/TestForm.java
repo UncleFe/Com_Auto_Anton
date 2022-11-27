@@ -61,7 +61,7 @@ public class TestForm {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1680x1050";
-        Configuration.holdBrowserOpen = true; //Browser won't be closed
+//        Configuration.holdBrowserOpen = true; //Browser won't be closed
     }
 
     @Test //Test 'Text box'
