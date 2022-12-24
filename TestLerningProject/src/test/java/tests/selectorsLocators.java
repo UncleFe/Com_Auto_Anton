@@ -56,7 +56,7 @@ public class selectorsLocators {
         openCart.click();
         //Check Item in the Cart
         checkItemInCart.shouldHave(Condition.text(itemName));
-        //Delete Iten from the Cart
+        //Delete Item from the Cart
         deleteItemFromCart.click();
         //Check message about confirmation of deleting item
         alertConfirmationDeleteItem.shouldBe(Condition.visible);

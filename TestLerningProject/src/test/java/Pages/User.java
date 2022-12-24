@@ -1,33 +1,19 @@
 package Pages;
 
-public class Users {
-    String _userEmail;
-    String _userPassword;
-    String _userName;
+public class User {
+    public static String userEmail = "ttoxa87@gmail.com";
+    public static String userPassword = "nVibuimS9_s.RjG";
+    public static String userName = "Anton Bukhvalau";
 
-    public Users(String userEmail, String userPassword, String userName){
-        _userEmail = userEmail;
-        _userPassword = userPassword;
-        _userName = userName;
+    public static String getUserEmail(){
+       return userEmail;
     }
-
-    public void getUserName(){
-        return userEmail;
-    }
-
-    public void getUserPassword(){
+    public static String getUserPassword(){
         return userPassword;
     }
 
-    public void getUser1Name(){
+    public static String getUserName(){
         return userName;
-    }
-
-    public static void main (String[] args){
-        Users User1 = new Users("ttoxa87@gmail.com", "ttoxa87@gmail.com");
-        User1.userEmail = ;
-        User1.userPassword = "nVibuimS9_s.RjG";
-        User1.userName = "Anton Bukhvalau";
     }
 }
 
