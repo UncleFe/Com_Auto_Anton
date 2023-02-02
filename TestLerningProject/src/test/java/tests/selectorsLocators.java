@@ -38,32 +38,19 @@ public class selectorsLocators {
     void HWSelectors (){
 
         open("jackets-men.html");
-        //Open menu 'Rain Coat'
         menuRainCoat.click();
-        //Choose presentation as List
         buttonList.click();
-        //Choose sort by Price
         dropDownSortBy.setValue(sortByPrice);
-        //Choose 'size = XL' for the first coat
         xlSizeOfTheFirst.click();
-        //Choose 'color = Red' for the first coat
         RedColorOfTheFirst.click();
-        //Add the first item to the Cart
         buttonAddToCartForTheFirst.click();
-        //Wait that item will be in the Cart
         itemInTheCart.shouldBe(Condition.visible);
-        //Open the Cart
         openCart.click();
-        //Check Item in the Cart
         checkItemInCart.shouldHave(Condition.text(itemName));
-        //Delete Item from the Cart
         deleteItemFromCart.click();
-        //Check message about confirmation of deleting item
         alertConfirmationDeleteItem.shouldBe(Condition.visible);
         alertConfirmationDeleteItem.shouldHave(Condition.text(messageForConfirmationDelete));
-        //Click button 'Ok' in the alert of confirmation of deleting item
         buttonOkFromAlertDeleteItem.click();
-        //Check message that the Cart is empty
         emptyCart.shouldHave(Condition.text(messageEmtpyCart));
     }
 }

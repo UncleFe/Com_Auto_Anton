@@ -69,54 +69,45 @@ public class TopsMenPage extends BasePage {
     }
 
     public void clickButtonList() {
-        //Choose presentation as List
         buttonList.click();
     }
 
     public void chooseSortByPrice()    {
-        //Choose sort by Price
         dropDownSortBy.setValue(sortByPrice);
     }
 
     public void chooseSizeXLForFirst() {
-        //Choose 'size = XL' for the first coat
         xlSizeOfTheFirst.click();
     }
 
     public void chooseSizeMForSecond() {
-        //Choose 'size = M' for the first coat
         mSizeOfTheSecond.click();
     }
 
     public void chooseColorRedForFirst() {
-        //Choose 'color = Red' for the first coat
         redColorOfTheFirst.click();
     }
 
     public void chooseColorGreenForSecond() {
-        //Choose 'color = Green' for the first coat
         greenColorOfTheSecond.click();
     }
 
     public void addTheFirstItemToCart() {
-        //Add the first item to the Cart
         buttonAddToCartForTheFirst.click();
+    }
+    public void checkItemInCart(){
         itemInTheCart.shouldBe(Condition.visible);
     }
 
     public void addTheSecondItemToCart() {
-        //Add the second item to the Cart
         buttonAddToCartForTheSecond.click();
-        itemInTheCart.shouldBe(Condition.visible);
     }
 
     public void openCartFromPage() {
-        //Open the Cart
         openCart.click();
     }
 
     public void checkCheapestItemInCart() {
-        //Check Item in the Cart
         checkItemInCart.shouldHave(Condition.text(cheapestItem));
     }
 
@@ -126,18 +117,15 @@ public class TopsMenPage extends BasePage {
     }
 
     public void checkMessageConfirmDeleting() {
-        //Check message about confirmation of deleting item
         alertConfirmationDeleteItem.shouldBe(Condition.visible);
         alertConfirmationDeleteItem.shouldHave(Condition.text(messageForConfirmationDelete));
     }
 
     public void clickButtonOkInConfirmDeeting() {
-        //Click button 'Ok' in the alert of confirmation of deleting item
         buttonOkFromAlertDeleteItem.click();
     }
 
     public void checkEmptyCart() {
-        //Check message that the Cart is empty
         emptyCartFromTopsMen.shouldHave(Condition.text(messageEmtpyCart));
     }
 }

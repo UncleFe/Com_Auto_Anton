@@ -27,6 +27,7 @@ public class TopsMenTest {
         topsMenPage.chooseSizeXLForFirst();
         topsMenPage.chooseColorRedForFirst();
         topsMenPage.addTheFirstItemToCart();
+        topsMenPage.checkItemInCart();
         topsMenPage.openCartFromPage();
         topsMenPage.checkCheapestItemInCart();
         topsMenPage.deleteItemFromCart();
@@ -37,8 +38,7 @@ public class TopsMenTest {
 
     @Test
     void AddSecondCheapestItemWithLogin(){
-        LoginTest loginTest = new LoginTest();
-        loginTest.loginTest();
+        LoginTest.loginTest();
         topsMenPage.open();
         topsMenPage.clickMenuRainCoat();
         topsMenPage.clickButtonList();
@@ -46,10 +46,11 @@ public class TopsMenTest {
         topsMenPage.chooseSizeMForSecond();
         topsMenPage.chooseColorGreenForSecond();
         topsMenPage.addTheSecondItemToCart();
+        topsMenPage.checkItemInCart();
         cartPage.open();
         cartPage.checkItemInCart(topsMenPage.secondCheapestItem);
-        loginTest.logOutAfterLogin();
-        loginTest.loginTest();
+        LoginTest.logOutAfterLogin();
+        LoginTest.loginTest();
         cartPage.open();
         cartPage.checkItemInCart(topsMenPage.secondCheapestItem);
         cartPage.clickButtonDelete();
