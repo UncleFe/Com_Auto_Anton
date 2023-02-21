@@ -44,7 +44,7 @@ public class TopsMenPage extends BasePage {
     }
 
     public void verifyWelcome(String messageWelcome){
-      verifyTextWelcome.shouldHave(Condition.text("Welcome, " + messageWelcome));
+        verifyTextWelcome.shouldHave(Condition.text("Welcome, " + messageWelcome));
     }
 
     public void verifyLogout(String messageWelcome){

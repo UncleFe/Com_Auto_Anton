@@ -6,7 +6,7 @@ public class User {
     private static String userName = "Anton Bukhvalau";
 
     public static String getUserEmail(){
-       return userEmail;
+        return userEmail;
     }
     public static String getUserPassword(){
         return userPassword;
@@ -16,4 +16,3 @@ public class User {
         return userName;
     }
 }
-

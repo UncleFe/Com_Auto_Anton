@@ -28,4 +28,3 @@ public class CartPage extends BasePage {
         emptyCartFromCartPage.shouldHave(Condition.text(message));
     }
 }
-

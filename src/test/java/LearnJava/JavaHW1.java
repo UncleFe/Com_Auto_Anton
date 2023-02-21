@@ -1,5 +1,4 @@
-package Java;
-
+package LearnJava;
 public class JavaHW1 {
     public static void main (String[] args){
 
