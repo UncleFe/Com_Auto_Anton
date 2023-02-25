@@ -2,6 +2,7 @@ package Pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -59,13 +60,14 @@ public class TopsMenPage extends BasePage {
     }
 
     public void clickMenuRainCoat() {
-        if(menuRainCoat.isDisplayed()){
+        boolean menuRainCoatIsOpen = menuRainCoat.isDisplayed();
+        if(menuRainCoatIsOpen){
             menuRainCoat.click();
         } else{
             menuStyle.click();
+            Assertions.assertTrue(menuRainCoatIsOpen);
             menuRainCoat.click();
         }
-
     }
 
     public void clickButtonList() {
@@ -112,7 +114,6 @@ public class TopsMenPage extends BasePage {
     }
 
     public void deleteItemFromCart() {
-        //Delete Item from the Cart
         deleteItemFromCart.click();
     }
 

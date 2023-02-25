@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginTest {
-    static LoginPage loginPage = new LoginPage("https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/");
+    static LoginPage loginPage = new LoginPage("https://magento.softwaretestingboard.com/customer/account" +
+            "/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/");
 
     CartPage cartPage = new CartPage("https://magento.softwaretestingboard.com/checkout/cart/");
 
@@ -21,22 +22,13 @@ public class LoginTest {
         Configuration.holdBrowserOpen = true; //Browser won't be closed
     }
     @Test
-    public static void loginTest(){
-        loginPage.open();
-        loginPage.fillInLoginField(User.getUserEmail());
-        loginPage.fillInPasswordField(User.getUserPassword());
-        TopsMenPage topsMenPage = loginPage.goToTopsMenPage();
-        topsMenPage.verifyWelcome(User.getUserName());
+    void LoginTest(){
+        LoginPage.login();
     }
-
     @Test
-    public static void logOutAfterLogin(){
-        TopsMenPage topsMenPage = new TopsMenPage("");
-        topsMenPage.clickDropDownWelcome();
-        topsMenPage.clickButtonSignOut();
-        topsMenPage.verifyLogout(User.getUserName());
+    void LogOutAfterLoginTest(){
+        LoginPage.logOutAfterLogin();
     }
-
     @Test
     public void loginAndLogoutTest(){
         //Login

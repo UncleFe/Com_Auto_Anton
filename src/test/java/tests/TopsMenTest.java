@@ -38,7 +38,7 @@ public class TopsMenTest {
 
     @Test
     void AddSecondCheapestItemWithLogin(){
-        LoginTest.loginTest();
+        LoginPage.login();
         topsMenPage.open();
         topsMenPage.clickMenuRainCoat();
         topsMenPage.clickButtonList();
@@ -49,8 +49,8 @@ public class TopsMenTest {
         topsMenPage.checkItemInCart();
         cartPage.open();
         cartPage.checkItemInCart(topsMenPage.secondCheapestItem);
-        LoginTest.logOutAfterLogin();
-        LoginTest.loginTest();
+        LoginPage.logOutAfterLogin();
+        LoginPage.login();
         cartPage.open();
         cartPage.checkItemInCart(topsMenPage.secondCheapestItem);
         cartPage.clickButtonDelete();
