@@ -8,18 +8,29 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.logging.Logger;
+
 public class TopsMenTest {
+    LoginTest loginTest = new LoginTest();
     TopsMenPage topsMenPage = new TopsMenPage ("https://magento.softwaretestingboard.com/men/tops-men.html");
     CartPage cartPage = new CartPage("https://magento.softwaretestingboard.com/checkout/cart/");
+    Logger logger = Logger.getLogger(TopsMenTest.class.getName());
 
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1680x1050";
-        Configuration.holdBrowserOpen = true; //Browser won't be closed
+//        Configuration.holdBrowserOpen = true; //Browser won't be closed
     }
 
     @Test
-    void AddAndDeleteCheapestItemWithoutLogin(){
+    void AddAndDeleteCheapestItemWithoutLogin() throws IOException {
+        try{
+            FileInputStream fis = new FileInputStream("src/test/resources/log.properties");
+        } catch (IOException e){
+            e.printStackTrace();
+        }
         topsMenPage.open();
         topsMenPage.clickMenuRainCoat();
         topsMenPage.clickButtonList();
@@ -32,13 +43,13 @@ public class TopsMenTest {
         topsMenPage.checkCheapestItemInCart();
         topsMenPage.deleteItemFromCart();
         topsMenPage.checkMessageConfirmDeleting();
-        topsMenPage.clickButtonOkInConfirmDeeting();
+        topsMenPage.clickButtonOkInConfirmDeleting();
         topsMenPage.checkEmptyCart();
     }
 
     @Test
     void AddSecondCheapestItemWithLogin(){
-        LoginPage.login();
+        loginTest.login();
         topsMenPage.open();
         topsMenPage.clickMenuRainCoat();
         topsMenPage.clickButtonList();
@@ -49,8 +60,8 @@ public class TopsMenTest {
         topsMenPage.checkItemInCart();
         cartPage.open();
         cartPage.checkItemInCart(topsMenPage.secondCheapestItem);
-        LoginPage.logOutAfterLogin();
-        LoginPage.login();
+        loginTest.logOutAfterLogin();
+        loginTest.login();
         cartPage.open();
         cartPage.checkItemInCart(topsMenPage.secondCheapestItem);
         cartPage.clickButtonDelete();

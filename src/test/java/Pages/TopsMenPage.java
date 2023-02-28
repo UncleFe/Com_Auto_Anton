@@ -5,6 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 
+import java.util.concurrent.TimeUnit;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class TopsMenPage extends BasePage {
@@ -45,88 +47,106 @@ public class TopsMenPage extends BasePage {
     }
 
     public void verifyWelcome(String messageWelcome){
+        logger.info("Check login");
         verifyTextWelcome.shouldHave(Condition.text("Welcome, " + messageWelcome));
     }
 
     public void verifyLogout(String messageWelcome){
+        logger.info("Check logout");
         verifyTextWelcome.shouldNotHave(Condition.text("Welcome, " + messageWelcome));
     }
     public void clickDropDownWelcome(){
+        logger.info("Open dropdown Welcome");
         dropDownWelcome.click();
     }
 
     public void clickButtonSignOut(){
+        logger.info("Click button Sign out");
         buttonSignOut.click();
     }
 
     public void clickMenuRainCoat() {
-        boolean menuRainCoatIsOpen = menuRainCoat.isDisplayed();
-        if(menuRainCoatIsOpen){
+        logger.info("Open menu Rain Coat");
+        if(menuRainCoat.isDisplayed()){
             menuRainCoat.click();
         } else{
             menuStyle.click();
-            Assertions.assertTrue(menuRainCoatIsOpen);
             menuRainCoat.click();
         }
     }
 
     public void clickButtonList() {
+        logger.info("Click button list");
         buttonList.click();
     }
 
     public void chooseSortByPrice()    {
+        logger.info("Choose sort by Price");
         dropDownSortBy.setValue(sortByPrice);
     }
 
     public void chooseSizeXLForFirst() {
+        logger.info("Choose size XL");
         xlSizeOfTheFirst.click();
     }
 
     public void chooseSizeMForSecond() {
+        logger.info("Choose size M");
         mSizeOfTheSecond.click();
     }
 
     public void chooseColorRedForFirst() {
+        logger.info("Choose red color");
         redColorOfTheFirst.click();
     }
 
     public void chooseColorGreenForSecond() {
+        logger.info("Choose green color");
         greenColorOfTheSecond.click();
     }
 
     public void addTheFirstItemToCart() {
+        logger.info("Add item to the Cart");
         buttonAddToCartForTheFirst.click();
     }
     public void checkItemInCart(){
+        logger.info("Check item in the Cart");
         itemInTheCart.shouldBe(Condition.visible);
     }
 
     public void addTheSecondItemToCart() {
+        logger.info("Add item to the Cart");
         buttonAddToCartForTheSecond.click();
     }
 
     public void openCartFromPage() {
+        logger.info("Open the Cart");
         openCart.click();
     }
 
     public void checkCheapestItemInCart() {
+        logger.info("Check item in the Cart");
         checkItemInCart.shouldHave(Condition.text(cheapestItem));
     }
 
     public void deleteItemFromCart() {
+        logger.info("Delete item from the Cart");
         deleteItemFromCart.click();
     }
 
     public void checkMessageConfirmDeleting() {
+        logger.info("Check message about deleting item");
         alertConfirmationDeleteItem.shouldBe(Condition.visible);
         alertConfirmationDeleteItem.shouldHave(Condition.text(messageForConfirmationDelete));
     }
 
-    public void clickButtonOkInConfirmDeeting() {
+    public void clickButtonOkInConfirmDeleting() {
+        logger.info("Click on the button delete");
         buttonOkFromAlertDeleteItem.click();
     }
 
     public void checkEmptyCart() {
+        logger.info("Check that the Cart is empty");
         emptyCartFromTopsMen.shouldHave(Condition.text(messageEmtpyCart));
     }
 }

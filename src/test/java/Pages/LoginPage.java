@@ -18,36 +18,28 @@ public class LoginPage extends BasePage {
     }
 
     public void loginAsUser(String userName, String password){
+        logger.info("Set data for the login field");
         loginField.setValue(userName);
+        logger.info("Set data for the password field");
         passwordField.setValue(password);
         signInButton.click();
     }
 
     public void fillInLoginField(String userName){
+        logger.info("Set data for the login field");
         loginField.setValue(userName);
         Assertions.assertEquals(loginField.getValue(), userName);
     }
 
     public void fillInPasswordField(String password){
+        logger.info("Set data for the password field");
         passwordField.setValue(password);
         Assertions.assertEquals(passwordField.getValue(), password);
     }
 
     public TopsMenPage goToTopsMenPage(){
+        logger.info("Click on the button Sign in");
         signInButton.click();
         return new TopsMenPage("https://magento.softwaretestingboard.com/men/tops-men.html");
-    }
-    public static void login(){
-        loginPage.open();
-        loginPage.fillInLoginField(User.getUserEmail());
-        loginPage.fillInPasswordField(User.getUserPassword());
-        TopsMenPage topsMenPage = loginPage.goToTopsMenPage();
-        topsMenPage.verifyWelcome(User.getUserName());
-    }
-    public static void logOutAfterLogin(){
-        TopsMenPage topsMenPage = new TopsMenPage("");
-        topsMenPage.clickDropDownWelcome();
-        topsMenPage.clickButtonSignOut();
-        topsMenPage.verifyLogout(User.getUserName());
     }
 }
