@@ -26,11 +26,7 @@ public class TopsMenTest {
 
     @Test
     void AddAndDeleteCheapestItemWithoutLogin() throws IOException {
-        try{
-            FileInputStream fis = new FileInputStream("src/test/resources/log.properties");
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+
         topsMenPage.open();
         topsMenPage.clickMenuRainCoat();
         topsMenPage.clickButtonList();
